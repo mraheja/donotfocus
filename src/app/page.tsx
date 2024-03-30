@@ -3,9 +3,10 @@
 import { DoNotFocusBackground } from "@/components/DoNotFocusBackground/DoNotFocusBackground";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
 import { DistractionModal } from "@/components/DistractionModal/DistractionModal";
+import { DISTRACTIONS } from "@/const/Distractions";
 
 export default function Home() {
   const [doNotFocus, setDoNotFocus] = useState(false);
@@ -16,6 +17,13 @@ export default function Home() {
       setDistractionOpen(true);
     }, 3000);
   };
+
+  const onClose = useCallback(() => {
+    setDistractionOpen(false);
+    startDistractionTimeout();
+  }, []);
+
+  const distractions = DISTRACTIONS(onClose);
 
   return (
     <main className="flex h-screen flex-col items-center justify-center">
@@ -41,7 +49,9 @@ export default function Home() {
         }}
       />
       {doNotFocus && <DoNotFocusBackground />}
-      {distractionOpen && <DistractionModal onClose={() => setDistractionOpen(false)}/>}
+      {distractionOpen && (
+        distractions[Math.floor(Math.random() * distractions.length)]
+      )}
     </main>
   );
 }
