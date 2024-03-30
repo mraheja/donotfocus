@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getNextQuestions } from "@/utils/nextQuestion";
+import { LoaderIcon } from "lucide-react";
 
 const INIT_QUESTIONS = ["What is your name?", "What is your favorite color?"];
 export const InfiniteForm = () => {
@@ -20,7 +21,7 @@ export const InfiniteForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full h-screen">
+    <div className="flex justify-center items-center w-full h-full">
       {!loading ? <div className="p-10 space-y-3 max-w-[800px] w-full">
         {questions.map((q, i) => (
           <div key={i}>
@@ -37,7 +38,7 @@ export const InfiniteForm = () => {
         <div className="flex justify-end w-full">
         <Button onClick={onSubmit} className="justify-self-end">Submit</Button>
         </div>
-      </div> : <div> loading </div> }
+      </div> : <div><LoaderIcon className="w-10 h-10 animate-spin" /></div> }
     </div>
   );
 };

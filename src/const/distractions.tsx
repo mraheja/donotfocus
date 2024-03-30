@@ -1,4 +1,5 @@
 import { DistractionModal } from "@/components/DistractionModal/DistractionModal";
+import { InfiniteForm } from "@/components/InfiniteForm/InfiniteForm";
 
 export const DISTRACTIONS = (onClose: () => void) => {
   return [
@@ -11,5 +12,8 @@ export const DISTRACTIONS = (onClose: () => void) => {
     <DistractionModal onClose={onClose} name="Pointer Pointer" key={3}>
       <iframe src="https://pointerpointer.com/" className="w-full h-full" />
     </DistractionModal>,
+    <DistractionModal onClose={onClose} name="Infinite Form" key={4}>
+      <InfiniteForm />
+    </DistractionModal>
   ];
 };
