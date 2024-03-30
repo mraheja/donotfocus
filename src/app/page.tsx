@@ -7,6 +7,7 @@ import { useCallback, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { DistractionModal } from "@/components/DistractionModal/DistractionModal";
 import { DISTRACTIONS } from "@/const/distractions";
+import { PhoneModal } from "@/components/PhoneModal/PhoneModal";
 
 export default function Home() {
   const [doNotFocus, setDoNotFocus] = useState(false);
@@ -60,6 +61,7 @@ export default function Home() {
       {distractionOpen && shuffledDistractors && (
        shuffledDistractors[currentDistractionIdx]
       )}
+      <PhoneModal />
     </main>
   );
 }
