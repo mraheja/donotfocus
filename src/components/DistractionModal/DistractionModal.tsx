@@ -13,7 +13,7 @@ export const DistractionModal: React.FC<
     <>
       <div className="absolute top-0 bottom-0 left-0 right-0 bg-transparent z-20 justify-center items-center flex">
         <Card className="w-[800px] h-[500px] z-30 bg-white flex flex-col">
-          <div className="p-2 flex justify-between w-full">
+          <div className="p-2 flex justify-between w-full border-b">
             <span />
             <span>{name}</span>
             <XIcon className="w-5 h-5 cursor-pointer" onClick={onClose} />
