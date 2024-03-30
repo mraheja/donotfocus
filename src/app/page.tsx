@@ -17,7 +17,7 @@ export default function Home() {
     setCurrentDistractionIdx((prev) => (prev + 1) % shuffledDistractors.length);
     setTimeout(() => {
       setDistractionOpen(true);
-    }, 3000);
+    }, 1000);
   };
 
   const onClose = useCallback(() => {
