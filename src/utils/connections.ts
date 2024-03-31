@@ -12,13 +12,13 @@ const SYSTEM_PROMPT = `
 `
 
 const USER_PROMPT_GET_WORDS = `
-Give me a list of 20 random words that are all less than 8 characters.
+Give me a list of 20 random nouns that are all less than 8 characters.
 
 You must answer in the form:
 [WORD]: word
 
 For example:
-[WORD]: red
+[WORD]: pillow
 [WORD]: shirt
 
 Try to make the words as random as possible.

@@ -1,5 +1,6 @@
 import { DistractionModal } from "@/components/DistractionModal/DistractionModal";
 import { InfiniteForm } from "@/components/InfiniteForm/InfiniteForm";
+import { NotConnectionsGame } from "@/components/NotConnectionsGame/NotConnectionsGame";
 
 export const DISTRACTIONS = (onClose: () => void) => {
   return [
@@ -15,5 +16,8 @@ export const DISTRACTIONS = (onClose: () => void) => {
      <DistractionModal onClose={onClose} name="COV-Identify" key={4}>
      <iframe src="https://mraheja.github.io/COV-IDentify/index.html" className="w-full h-full" />
    </DistractionModal>,
+    <DistractionModal onClose={onClose} name="Not Connections Game" key={5}>
+      <NotConnectionsGame />
+    </DistractionModal>,
   ];
 };

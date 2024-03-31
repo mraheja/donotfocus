@@ -50,7 +50,9 @@ export const NotConnectionsGame = () => {
   }, [selected]);
 
   return (
-    <>
+    <div className="flex flex-col h-full justify-center items-center">
+      <div>Definitely Connections</div>
+
       {ready ? (
         <div className="grid grid-cols-4 w-[300px]">
           {words.map((w, i) => (
@@ -59,14 +61,24 @@ export const NotConnectionsGame = () => {
               name={w}
               onClick={() => toggle(i)}
               selected={selected?.[i] ?? false}
-              bordered ={bordered?.[i] ?? false}
+              bordered={bordered?.[i] ?? false}
             />
           ))}
-          {(connection || gettingConnection) && (gettingConnection ? <div className="flex justify-center items-center w-full"><LoaderIcon className="w-10 h-10 animate-spin p-3" /></div> : <span className="w-[300px] text-center flex flex-col mt-3 space-y-2"><span>Connection Found:</span><span className="italic">{connection}</span></span>)}
+          {(connection || gettingConnection) &&
+            (gettingConnection ? (
+              <div className="flex justify-center items-center w-[300px]">
+                <LoaderIcon className="w-10 h-10 animate-spin p-3" />
+              </div>
+            ) : (
+              <span className="w-[300px] text-center flex flex-col mt-3 space-y-2">
+                <span>Connection Found:</span>
+                <span className="italic">{connection}</span>
+              </span>
+            ))}
         </div>
       ) : (
         <LoaderIcon className="w-10 h-10 animate-spin p-10" />
       )}
-    </>
+    </div>
   );
 };
